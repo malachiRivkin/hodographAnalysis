@@ -64,11 +64,11 @@ location = "Tolten"     #[Tolten]/[Villarica]
 
 user = r'\Malachi'
 #variables that are specific to analysis: These might be changed regularly depending on flight location, file format, etc.
-flightData = r"C:\Users" + user + r"\OneDrive - University of Idaho\%SummerInternship2020\%%CHIILE_Analysis_Backups\ChilePythonEnvironment_01112021\ChileData_012721\Tolten_01282021"             #flight data directory
-fileToBeInspected = 'T36_0230_121520_Artemis_Rerun_CLEAN.txt'                                                 #specific flight profile to be searched through manually
-microHodoDir = r"C:\Users" + user + "\OneDrive - University of Idaho\workingChileDirectory\T36_hodographs"
+flightData = r"C:\Users\reec7164\OneDrive - University of Idaho\Eclipse\Data\Tolten"             #flight data directory
+fileToBeInspected = 'Tolten_L30_121420_UTC2030.txt'                                                 #specific flight profile to be searched through manually
+microHodoDir = r"C:\Users\reec7164\OneDrive - University of Idaho\Eclipse\Hodographs\MicroHodos"
 #microHodoDir = r"C:\Users\Malachi\OneDrive - University of Idaho\workingChileDirectory\Tolten\T28"              #location where selections from GUI ard. This is also the location where do analysis looks for micro hodos to analysis
-waveParamDir = r"C:\Users" + user + "\OneDrive - University of Idaho\workingChileDirectory"     #location where wave parameter files are to be saved
+waveParamDir = r"C:\Users\reec7164\OneDrive - University of Idaho\Eclipse\Hodographs\Parameters"     #location where wave parameter files are to be saved
 
 #for Kathryn:
 #flightData = r"C:\Users\reec7164\OneDrive - University of Idaho\%SummerInternship2020\%%CHIILE_Analysis_Backups\ChilePythonEnvironment_01112021\ChileData_012721\Tolten_01282021"             #flight data directory
@@ -1009,7 +1009,7 @@ def manualTKGUI():
             self.orient = StringVar()
             self.orient.set(['CW', 'CCW'])
             self.picDir = tkinter.Spinbox(root, textvariable=self.orient, values=['CW', 'CCW'], state='readonly', wrap=True, font=Font(family='Helvetica', size=18, weight='normal'))
-            self.picDir.place(relx=.05, rely=.32, relheight=.05, relwidth=.15)
+            self.picDir.place(relx=.05, rely=.5, relheight=.05, relwidth=.15)
             
             #END ORIENTATION SELECTION
             
@@ -1069,8 +1069,8 @@ def manualTKGUI():
             
             #create buttons
             self.winLabel = tkinter.Label(root, text="Blue dot indicates lower altitude", font=Font(family='Helvetica', size=15, weight='normal')).place(relx=.05, rely=.4)
-            self.quitButton = tkinter.Button(master=root, text="Quit", command=self._quit).place(relx=.05, rely=.6, relheight=.05, relwidth=.15)
-            self.saveButton = tkinter.Button(master=root, text="Save Micro-Hodograph", command=self.save).place(relx=.05, rely=.5, relheight=.05, relwidth=.15)
+            self.quitButton = tkinter.Button(master=root, text="Quit", command=self._quit).place(relx=.05, rely=.7, relheight=.05, relwidth=.15)
+            self.saveButton = tkinter.Button(master=root, text="Save Micro-Hodograph", command=self.save).place(relx=.05, rely=.6, relheight=.05, relwidth=.15)
 
             self.readyToSave = False #flag to make sure hodo is updated before saving
             #---------
@@ -1305,11 +1305,11 @@ def manualTKGUI():
     root.geometry("400x650")
     #Change the icon of window taskbar
     os.chdir(scriptDirectory)
-    from PIL import Image
-    filename = r'eclipse.png'
-    img = Image.open(filename)
-    img.save('logo.ico', sizes=[(255, 255)])
-    root.wm_iconbitmap("logo.ico")
+    # from PIL import Image
+    # filename = r'eclipse.png'
+    # img = Image.open(filename)
+    # img.save('logo.ico', sizes=[(255, 255)])
+    # root.wm_iconbitmap("logo.ico")
 
     root.wm_title("Manual Hodograph GUI")
     App(root)
